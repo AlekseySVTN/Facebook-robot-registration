@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - symfony@127.0.0.1" uuid="4433561b-6e39-4ca6-a559-3a9660c0b586">
+    <database-info product="MySQL" version="5.7.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="symfony"/>
+      <table id="2" parent="1" name="Persons"/>
+      <column id="3" parent="2" name="PersonID">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="4" parent="2" name="LastName">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="5" parent="2" name="FirstName">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="6" parent="2" name="Address">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="7" parent="2" name="City">
+        <data-type>varchar(255)</data-type>
+      </column>
+    </database-model>
+  </data-source>
+</component>

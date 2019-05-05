@@ -1,0 +1,84 @@
+if (status === 'success') {
+
+    var getDay = function(){
+        return Math.floor(Math.random() * (30 - 0)) + 0;
+    }
+
+    var getMonth = function(){
+        return Math.floor(Math.random() * (12 - 0)) + 0;
+    }
+
+    var getYear = function(){
+        return Math.floor(Math.random() * (1999 - 1985)) + 1985;
+    }
+
+
+
+
+    try {
+
+        page.evaluate(function () {
+            document.querySelector("#reg input[name='firstname']").value = "Aleksey";
+            document.querySelector("#reg input[name='lastname']").value = "Pudov";
+            document.querySelector("#reg input[name='reg_email__']").value = "89111538097";
+            document.querySelector("#reg input[name='reg_passwd__']").value = "Salamandra1994";
+            document.querySelector("#reg input[name='sex'][value='2']").checked = "checked";
+            document.querySelector("#day option[value='" + getDay() + "']").selected = "selected";
+            document.querySelector("#month option[value='" + getMonth() + "']").selected = "selected";
+            document.querySelector("#year option[value='" + getYear() + "']").selected = "selected";
+
+
+            document.querySelector("#reg button[name='websubmit']").click();
+        });
+
+        page.render('facebook_page1.png');
+
+/*
+        setTimeout(function () {
+            page.evaluate(function () {
+                console.log('haha');
+            });
+            page.render("example.png");
+
+
+            var url = "https://www.facebook.com/";
+
+            page.open(url, function (status2) {
+                setTimeout(function () {
+                    page.evaluate(function () {
+                        console.log('haha');
+                    });
+                    page.render("google.png");
+                    phantom.exit();
+                }, 5000);
+            });
+        }, 5000);
+*/
+    } catch(e) {
+
+        response.status  = 500;
+        response.content = e.message;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+response.console = logs;
+response.cookies = phantom.cookies;
+
+
+system.stderr.write(debug.join('\\n') + '\\n');
+system.stdout.write(JSON.stringify(response, undefined, 4));
+setTimeout(function () {
+    phantom.exit();
+},4000);

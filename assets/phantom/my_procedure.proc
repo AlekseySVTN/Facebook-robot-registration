@@ -1,0 +1,23 @@
+var page = require('webpage').create();
+page.open("http://www.facebook.com/login.php", function(status) {
+
+    if (status === "success") {
+        page.onConsoleMessage = function(msg, lineNum, sourceId) {
+            console.log('CONSOLE: ' + msg + ' (from line #' + lineNum + ' in "' + sourceId + '")');
+        };
+        page.evaluate(function() {
+            console.log('hello');
+            document.getElementById("email").value = "email";
+            document.getElementById("pass").value = "password";
+            document.getElementById("u_0_1").click();
+            // page is redirecting.
+        });
+        setTimeout(function() {
+            page.evaluate(function() {
+                console.log('haha');
+            });
+            page.render("page.png");
+            phantom.exit();
+        }, 5000);
+    }
+});
